@@ -15,6 +15,10 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		6EFC96904206F2B7D59FFCAC /* Pods_ChipmunkSwiftWrapper_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299853465BA813587AEDF951 /* Pods_ChipmunkSwiftWrapper_Example.framework */; };
 		BE7A2D19E57A869D82756119 /* Pods_ChipmunkSwiftWrapper_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 371077C638659982D4A32C06 /* Pods_ChipmunkSwiftWrapper_Tests.framework */; };
+		EE31D2E61BFAE36A00655FB1 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE31D2E41BFAE36A00655FB1 /* GameScene.swift */; };
+		EE31D34B1BFB7B6E00655FB1 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE31D34A1BFB7B6E00655FB1 /* Platform.swift */; };
+		EE31D34C1BFB7F5B00655FB1 /* Asteroid.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE31D3481BFB6F7600655FB1 /* Asteroid.swift */; };
+		EE31D34E1BFBB61A00655FB1 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = EE31D34D1BFBB61A00655FB1 /* GameScene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +41,7 @@
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		607FACE51AFB9204008FA782 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = Tests.xctest; path = ChipmunkSwiftWrapper_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACE51AFB9204008FA782 /* ChipmunkSwiftWrapper_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChipmunkSwiftWrapper_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		7638CB27B04B5C9085EC746B /* Pods-ChipmunkSwiftWrapper_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChipmunkSwiftWrapper_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChipmunkSwiftWrapper_Example/Pods-ChipmunkSwiftWrapper_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -47,6 +51,94 @@
 		D7B5D47D762B83FA635B7833 /* Pods-ChipmunkSwiftWrapper_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChipmunkSwiftWrapper_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChipmunkSwiftWrapper_Tests/Pods-ChipmunkSwiftWrapper_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		DB916173AE5B6C3C7BD7FC57 /* ChipmunkSwiftWrapper.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ChipmunkSwiftWrapper.podspec; path = ../ChipmunkSwiftWrapper.podspec; sourceTree = "<group>"; };
 		DD18184ACAFDFF9CBE395445 /* Pods-ChipmunkSwiftWrapper_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChipmunkSwiftWrapper_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChipmunkSwiftWrapper_Example/Pods-ChipmunkSwiftWrapper_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		EE31D2E41BFAE36A00655FB1 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		EE31D2EA1BFAE7B900655FB1 /* chipmunk.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = chipmunk.c; sourceTree = "<group>"; };
+		EE31D2EB1BFAE7B900655FB1 /* chipmunk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = chipmunk.h; sourceTree = "<group>"; };
+		EE31D2EC1BFAE7B900655FB1 /* Chipmunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chipmunk.swift; sourceTree = "<group>"; };
+		EE31D2ED1BFAE7B900655FB1 /* chipmunk-physics-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "chipmunk-physics-umbrella.h"; sourceTree = "<group>"; };
+		EE31D2EE1BFAE7B900655FB1 /* chipmunk_ffi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = chipmunk_ffi.h; sourceTree = "<group>"; };
+		EE31D2EF1BFAE7B900655FB1 /* chipmunk_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = chipmunk_private.h; sourceTree = "<group>"; };
+		EE31D2F01BFAE7B900655FB1 /* chipmunk_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = chipmunk_types.h; sourceTree = "<group>"; };
+		EE31D2F11BFAE7B900655FB1 /* chipmunk_unsafe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = chipmunk_unsafe.h; sourceTree = "<group>"; };
+		EE31D2F21BFAE7B900655FB1 /* ChipmunkArbiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipmunkArbiter.swift; sourceTree = "<group>"; };
+		EE31D2F31BFAE7B900655FB1 /* ChipmunkBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipmunkBody.swift; sourceTree = "<group>"; };
+		EE31D2F41BFAE7B900655FB1 /* ChipmunkConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipmunkConstraint.swift; sourceTree = "<group>"; };
+		EE31D2F51BFAE7B900655FB1 /* ChipmunkDampedRotarySpring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipmunkDampedRotarySpring.swift; sourceTree = "<group>"; };
+		EE31D2F61BFAE7B900655FB1 /* ChipmunkDampedSpring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipmunkDampedSpring.swift; sourceTree = "<group>"; };
+		EE31D2F71BFAE7B900655FB1 /* ChipmunkGearJoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipmunkGearJoint.swift; sourceTree = "<group>"; };
+		EE31D2F81BFAE7B900655FB1 /* ChipmunkGrooveJoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipmunkGrooveJoint.swift; sourceTree = "<group>"; };
+		EE31D2F91BFAE7B900655FB1 /* ChipmunkNearestPointQueryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipmunkNearestPointQueryInfo.swift; sourceTree = "<group>"; };
+		EE31D2FA1BFAE7B900655FB1 /* ChipmunkPinJoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipmunkPinJoint.swift; sourceTree = "<group>"; };
+		EE31D2FB1BFAE7B900655FB1 /* ChipmunkPivotJoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipmunkPivotJoint.swift; sourceTree = "<group>"; };
+		EE31D2FC1BFAE7B900655FB1 /* ChipmunkRatchetJoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipmunkRatchetJoint.swift; sourceTree = "<group>"; };
+		EE31D2FD1BFAE7B900655FB1 /* ChipmunkRotaryLimitJoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipmunkRotaryLimitJoint.swift; sourceTree = "<group>"; };
+		EE31D2FE1BFAE7B900655FB1 /* ChipmunkSegmentQueryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipmunkSegmentQueryInfo.swift; sourceTree = "<group>"; };
+		EE31D2FF1BFAE7B900655FB1 /* ChipmunkShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipmunkShape.swift; sourceTree = "<group>"; };
+		EE31D3001BFAE7B900655FB1 /* ChipmunkShapeQueryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipmunkShapeQueryInfo.swift; sourceTree = "<group>"; };
+		EE31D3011BFAE7B900655FB1 /* ChipmunkSimpleMotor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipmunkSimpleMotor.swift; sourceTree = "<group>"; };
+		EE31D3021BFAE7B900655FB1 /* ChipmunkSlideJoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipmunkSlideJoint.swift; sourceTree = "<group>"; };
+		EE31D3031BFAE7B900655FB1 /* ChipmunkSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipmunkSpace.swift; sourceTree = "<group>"; };
+		EE31D3041BFAE7B900655FB1 /* ChipmunkSpaceObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipmunkSpaceObject.swift; sourceTree = "<group>"; };
+		EE31D3051BFAE7B900655FB1 /* ChipmunkSwiftWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChipmunkSwiftWrapper.h; sourceTree = "<group>"; };
+		EE31D3061BFAE7B900655FB1 /* cpArbiter.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpArbiter.c; sourceTree = "<group>"; };
+		EE31D3071BFAE7B900655FB1 /* cpArbiter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpArbiter.h; sourceTree = "<group>"; };
+		EE31D3081BFAE7B900655FB1 /* cpArray.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpArray.c; sourceTree = "<group>"; };
+		EE31D3091BFAE7B900655FB1 /* cpBB.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpBB.c; sourceTree = "<group>"; };
+		EE31D30A1BFAE7B900655FB1 /* cpBB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpBB.h; sourceTree = "<group>"; };
+		EE31D30B1BFAE7B900655FB1 /* cpBBTree.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpBBTree.c; sourceTree = "<group>"; };
+		EE31D30C1BFAE7B900655FB1 /* cpBody.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpBody.c; sourceTree = "<group>"; };
+		EE31D30D1BFAE7B900655FB1 /* cpBody.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpBody.h; sourceTree = "<group>"; };
+		EE31D30E1BFAE7B900655FB1 /* cpCollision.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpCollision.c; sourceTree = "<group>"; };
+		EE31D30F1BFAE7B900655FB1 /* cpConstraint.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpConstraint.c; sourceTree = "<group>"; };
+		EE31D3101BFAE7B900655FB1 /* cpConstraint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpConstraint.h; sourceTree = "<group>"; };
+		EE31D3111BFAE7B900655FB1 /* cpDampedRotarySpring.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpDampedRotarySpring.c; sourceTree = "<group>"; };
+		EE31D3121BFAE7B900655FB1 /* cpDampedRotarySpring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpDampedRotarySpring.h; sourceTree = "<group>"; };
+		EE31D3131BFAE7B900655FB1 /* cpDampedSpring.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpDampedSpring.c; sourceTree = "<group>"; };
+		EE31D3141BFAE7B900655FB1 /* cpDampedSpring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpDampedSpring.h; sourceTree = "<group>"; };
+		EE31D3151BFAE7B900655FB1 /* cpGearJoint.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpGearJoint.c; sourceTree = "<group>"; };
+		EE31D3161BFAE7B900655FB1 /* cpGearJoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpGearJoint.h; sourceTree = "<group>"; };
+		EE31D3171BFAE7B900655FB1 /* cpGrooveJoint.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpGrooveJoint.c; sourceTree = "<group>"; };
+		EE31D3181BFAE7B900655FB1 /* cpGrooveJoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpGrooveJoint.h; sourceTree = "<group>"; };
+		EE31D3191BFAE7B900655FB1 /* cpHashSet.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpHashSet.c; sourceTree = "<group>"; };
+		EE31D31A1BFAE7B900655FB1 /* cpPinJoint.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpPinJoint.c; sourceTree = "<group>"; };
+		EE31D31B1BFAE7B900655FB1 /* cpPinJoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpPinJoint.h; sourceTree = "<group>"; };
+		EE31D31C1BFAE7B900655FB1 /* cpPivotJoint.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpPivotJoint.c; sourceTree = "<group>"; };
+		EE31D31D1BFAE7B900655FB1 /* cpPivotJoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpPivotJoint.h; sourceTree = "<group>"; };
+		EE31D31E1BFAE7B900655FB1 /* cpPolyShape.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpPolyShape.c; sourceTree = "<group>"; };
+		EE31D31F1BFAE7B900655FB1 /* cpPolyShape.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpPolyShape.h; sourceTree = "<group>"; };
+		EE31D3201BFAE7B900655FB1 /* cpRatchetJoint.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpRatchetJoint.c; sourceTree = "<group>"; };
+		EE31D3211BFAE7B900655FB1 /* cpRatchetJoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpRatchetJoint.h; sourceTree = "<group>"; };
+		EE31D3221BFAE7B900655FB1 /* cpRotaryLimitJoint.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpRotaryLimitJoint.c; sourceTree = "<group>"; };
+		EE31D3231BFAE7B900655FB1 /* cpRotaryLimitJoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpRotaryLimitJoint.h; sourceTree = "<group>"; };
+		EE31D3241BFAE7B900655FB1 /* cpShape.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpShape.c; sourceTree = "<group>"; };
+		EE31D3251BFAE7B900655FB1 /* cpShape.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpShape.h; sourceTree = "<group>"; };
+		EE31D3261BFAE7B900655FB1 /* cpSimpleMotor.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpSimpleMotor.c; sourceTree = "<group>"; };
+		EE31D3271BFAE7B900655FB1 /* cpSimpleMotor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpSimpleMotor.h; sourceTree = "<group>"; };
+		EE31D3281BFAE7B900655FB1 /* cpSlideJoint.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpSlideJoint.c; sourceTree = "<group>"; };
+		EE31D3291BFAE7B900655FB1 /* cpSlideJoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpSlideJoint.h; sourceTree = "<group>"; };
+		EE31D32A1BFAE7B900655FB1 /* cpSpace.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpSpace.c; sourceTree = "<group>"; };
+		EE31D32B1BFAE7B900655FB1 /* cpSpace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpSpace.h; sourceTree = "<group>"; };
+		EE31D32C1BFAE7B900655FB1 /* cpSpaceComponent.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpSpaceComponent.c; sourceTree = "<group>"; };
+		EE31D32D1BFAE7B900655FB1 /* cpSpaceHash.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpSpaceHash.c; sourceTree = "<group>"; };
+		EE31D32E1BFAE7B900655FB1 /* cpSpaceQuery.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpSpaceQuery.c; sourceTree = "<group>"; };
+		EE31D32F1BFAE7B900655FB1 /* cpSpaceStep.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpSpaceStep.c; sourceTree = "<group>"; };
+		EE31D3301BFAE7B900655FB1 /* cpSpatialIndex.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpSpatialIndex.c; sourceTree = "<group>"; };
+		EE31D3311BFAE7B900655FB1 /* cpSpatialIndex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpSpatialIndex.h; sourceTree = "<group>"; };
+		EE31D3321BFAE7B900655FB1 /* cpSweep1D.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpSweep1D.c; sourceTree = "<group>"; };
+		EE31D3331BFAE7B900655FB1 /* cpVect.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpVect.c; sourceTree = "<group>"; };
+		EE31D3341BFAE7B900655FB1 /* cpVect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpVect.h; sourceTree = "<group>"; };
+		EE31D3351BFAE7B900655FB1 /* prime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = prime.h; sourceTree = "<group>"; };
+		EE31D3361BFAE7B900655FB1 /* SpriteKitExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteKitExtension.swift; sourceTree = "<group>"; };
+		EE31D3371BFAE7B900655FB1 /* util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		EE31D33A1BFAE7B900655FB1 /* ChipmunkSwiftWrapper.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = ChipmunkSwiftWrapper.modulemap; sourceTree = "<group>"; };
+		EE31D33B1BFAE7B900655FB1 /* ChipmunkSwiftWrapper.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ChipmunkSwiftWrapper.xcconfig; sourceTree = "<group>"; };
+		EE31D33C1BFAE7B900655FB1 /* ChipmunkSwiftWrapper-dummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ChipmunkSwiftWrapper-dummy.m"; sourceTree = "<group>"; };
+		EE31D33D1BFAE7B900655FB1 /* ChipmunkSwiftWrapper-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChipmunkSwiftWrapper-prefix.pch"; sourceTree = "<group>"; };
+		EE31D33E1BFAE7B900655FB1 /* ChipmunkSwiftWrapper-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChipmunkSwiftWrapper-umbrella.h"; sourceTree = "<group>"; };
+		EE31D33F1BFAE7B900655FB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE31D3481BFB6F7600655FB1 /* Asteroid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asteroid.swift; sourceTree = "<group>"; };
+		EE31D34A1BFB7B6E00655FB1 /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
+		EE31D34D1BFBB61A00655FB1 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +173,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				EE31D3421BFAE7B900655FB1 /* Development Pods */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for ChipmunkSwiftWrapper */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -94,7 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD01AFB9204008FA782 /* ChipmunkSwiftWrapper_Example.app */,
-				607FACE51AFB9204008FA782 /* Tests.xctest */,
+				607FACE51AFB9204008FA782 /* ChipmunkSwiftWrapper_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,7 +200,11 @@
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				EE31D2E41BFAE36A00655FB1 /* GameScene.swift */,
+				EE31D34D1BFBB61A00655FB1 /* GameScene.sks */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				EE31D3481BFB6F7600655FB1 /* Asteroid.swift */,
+				EE31D34A1BFB7B6E00655FB1 /* Platform.swift */,
 			);
 			name = "Example for ChipmunkSwiftWrapper";
 			path = ChipmunkSwiftWrapper;
@@ -159,6 +256,164 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		EE31D3381BFAE7B900655FB1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				EE31D3471BFAE7DD00655FB1 /* Lib */,
+				EE31D3431BFAE7CA00655FB1 /* Extensions */,
+				EE31D3451BFAE7D400655FB1 /* Queries */,
+				EE31D3441BFAE7CE00655FB1 /* Joints */,
+				EE31D3051BFAE7B900655FB1 /* ChipmunkSwiftWrapper.h */,
+				EE31D2EC1BFAE7B900655FB1 /* Chipmunk.swift */,
+				EE31D2F21BFAE7B900655FB1 /* ChipmunkArbiter.swift */,
+				EE31D2F31BFAE7B900655FB1 /* ChipmunkBody.swift */,
+				EE31D2FF1BFAE7B900655FB1 /* ChipmunkShape.swift */,
+				EE31D3031BFAE7B900655FB1 /* ChipmunkSpace.swift */,
+				EE31D3041BFAE7B900655FB1 /* ChipmunkSpaceObject.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		EE31D3391BFAE7B900655FB1 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				EE31D3381BFAE7B900655FB1 /* Classes */,
+			);
+			path = Pod;
+			sourceTree = "<group>";
+		};
+		EE31D3401BFAE7B900655FB1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				EE31D33A1BFAE7B900655FB1 /* ChipmunkSwiftWrapper.modulemap */,
+				EE31D33B1BFAE7B900655FB1 /* ChipmunkSwiftWrapper.xcconfig */,
+				EE31D33C1BFAE7B900655FB1 /* ChipmunkSwiftWrapper-dummy.m */,
+				EE31D33D1BFAE7B900655FB1 /* ChipmunkSwiftWrapper-prefix.pch */,
+				EE31D33E1BFAE7B900655FB1 /* ChipmunkSwiftWrapper-umbrella.h */,
+				EE31D33F1BFAE7B900655FB1 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/ChipmunkSwiftWrapper";
+			sourceTree = "<group>";
+		};
+		EE31D3411BFAE7B900655FB1 /* ChipmunkSwiftWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				EE31D3391BFAE7B900655FB1 /* Pod */,
+				EE31D3401BFAE7B900655FB1 /* Support Files */,
+			);
+			name = ChipmunkSwiftWrapper;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		EE31D3421BFAE7B900655FB1 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EE31D3411BFAE7B900655FB1 /* ChipmunkSwiftWrapper */,
+			);
+			name = "Development Pods";
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		EE31D3431BFAE7CA00655FB1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EE31D3361BFAE7B900655FB1 /* SpriteKitExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		EE31D3441BFAE7CE00655FB1 /* Joints */ = {
+			isa = PBXGroup;
+			children = (
+				EE31D2F41BFAE7B900655FB1 /* ChipmunkConstraint.swift */,
+				EE31D2F51BFAE7B900655FB1 /* ChipmunkDampedRotarySpring.swift */,
+				EE31D2F61BFAE7B900655FB1 /* ChipmunkDampedSpring.swift */,
+				EE31D2F71BFAE7B900655FB1 /* ChipmunkGearJoint.swift */,
+				EE31D2F81BFAE7B900655FB1 /* ChipmunkGrooveJoint.swift */,
+				EE31D2FA1BFAE7B900655FB1 /* ChipmunkPinJoint.swift */,
+				EE31D2FB1BFAE7B900655FB1 /* ChipmunkPivotJoint.swift */,
+				EE31D2FC1BFAE7B900655FB1 /* ChipmunkRatchetJoint.swift */,
+				EE31D2FD1BFAE7B900655FB1 /* ChipmunkRotaryLimitJoint.swift */,
+				EE31D3011BFAE7B900655FB1 /* ChipmunkSimpleMotor.swift */,
+				EE31D3021BFAE7B900655FB1 /* ChipmunkSlideJoint.swift */,
+			);
+			name = Joints;
+			sourceTree = "<group>";
+		};
+		EE31D3451BFAE7D400655FB1 /* Queries */ = {
+			isa = PBXGroup;
+			children = (
+				EE31D3001BFAE7B900655FB1 /* ChipmunkShapeQueryInfo.swift */,
+				EE31D2FE1BFAE7B900655FB1 /* ChipmunkSegmentQueryInfo.swift */,
+				EE31D2F91BFAE7B900655FB1 /* ChipmunkNearestPointQueryInfo.swift */,
+			);
+			name = Queries;
+			sourceTree = "<group>";
+		};
+		EE31D3471BFAE7DD00655FB1 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				EE31D2EA1BFAE7B900655FB1 /* chipmunk.c */,
+				EE31D2EB1BFAE7B900655FB1 /* chipmunk.h */,
+				EE31D2ED1BFAE7B900655FB1 /* chipmunk-physics-umbrella.h */,
+				EE31D2EE1BFAE7B900655FB1 /* chipmunk_ffi.h */,
+				EE31D2EF1BFAE7B900655FB1 /* chipmunk_private.h */,
+				EE31D2F01BFAE7B900655FB1 /* chipmunk_types.h */,
+				EE31D2F11BFAE7B900655FB1 /* chipmunk_unsafe.h */,
+				EE31D3061BFAE7B900655FB1 /* cpArbiter.c */,
+				EE31D3071BFAE7B900655FB1 /* cpArbiter.h */,
+				EE31D3081BFAE7B900655FB1 /* cpArray.c */,
+				EE31D3091BFAE7B900655FB1 /* cpBB.c */,
+				EE31D30A1BFAE7B900655FB1 /* cpBB.h */,
+				EE31D30B1BFAE7B900655FB1 /* cpBBTree.c */,
+				EE31D30C1BFAE7B900655FB1 /* cpBody.c */,
+				EE31D30D1BFAE7B900655FB1 /* cpBody.h */,
+				EE31D30E1BFAE7B900655FB1 /* cpCollision.c */,
+				EE31D30F1BFAE7B900655FB1 /* cpConstraint.c */,
+				EE31D3101BFAE7B900655FB1 /* cpConstraint.h */,
+				EE31D3111BFAE7B900655FB1 /* cpDampedRotarySpring.c */,
+				EE31D3121BFAE7B900655FB1 /* cpDampedRotarySpring.h */,
+				EE31D3131BFAE7B900655FB1 /* cpDampedSpring.c */,
+				EE31D3141BFAE7B900655FB1 /* cpDampedSpring.h */,
+				EE31D3151BFAE7B900655FB1 /* cpGearJoint.c */,
+				EE31D3161BFAE7B900655FB1 /* cpGearJoint.h */,
+				EE31D3171BFAE7B900655FB1 /* cpGrooveJoint.c */,
+				EE31D3181BFAE7B900655FB1 /* cpGrooveJoint.h */,
+				EE31D3191BFAE7B900655FB1 /* cpHashSet.c */,
+				EE31D31A1BFAE7B900655FB1 /* cpPinJoint.c */,
+				EE31D31B1BFAE7B900655FB1 /* cpPinJoint.h */,
+				EE31D31C1BFAE7B900655FB1 /* cpPivotJoint.c */,
+				EE31D31D1BFAE7B900655FB1 /* cpPivotJoint.h */,
+				EE31D31E1BFAE7B900655FB1 /* cpPolyShape.c */,
+				EE31D31F1BFAE7B900655FB1 /* cpPolyShape.h */,
+				EE31D3201BFAE7B900655FB1 /* cpRatchetJoint.c */,
+				EE31D3211BFAE7B900655FB1 /* cpRatchetJoint.h */,
+				EE31D3221BFAE7B900655FB1 /* cpRotaryLimitJoint.c */,
+				EE31D3231BFAE7B900655FB1 /* cpRotaryLimitJoint.h */,
+				EE31D3241BFAE7B900655FB1 /* cpShape.c */,
+				EE31D3251BFAE7B900655FB1 /* cpShape.h */,
+				EE31D3261BFAE7B900655FB1 /* cpSimpleMotor.c */,
+				EE31D3271BFAE7B900655FB1 /* cpSimpleMotor.h */,
+				EE31D3281BFAE7B900655FB1 /* cpSlideJoint.c */,
+				EE31D3291BFAE7B900655FB1 /* cpSlideJoint.h */,
+				EE31D32A1BFAE7B900655FB1 /* cpSpace.c */,
+				EE31D32B1BFAE7B900655FB1 /* cpSpace.h */,
+				EE31D32C1BFAE7B900655FB1 /* cpSpaceComponent.c */,
+				EE31D32D1BFAE7B900655FB1 /* cpSpaceHash.c */,
+				EE31D32E1BFAE7B900655FB1 /* cpSpaceQuery.c */,
+				EE31D32F1BFAE7B900655FB1 /* cpSpaceStep.c */,
+				EE31D3301BFAE7B900655FB1 /* cpSpatialIndex.c */,
+				EE31D3311BFAE7B900655FB1 /* cpSpatialIndex.h */,
+				EE31D3321BFAE7B900655FB1 /* cpSweep1D.c */,
+				EE31D3331BFAE7B900655FB1 /* cpVect.c */,
+				EE31D3341BFAE7B900655FB1 /* cpVect.h */,
+				EE31D3351BFAE7B900655FB1 /* prime.h */,
+				EE31D3371BFAE7B900655FB1 /* util.h */,
+			);
+			name = Lib;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -200,7 +455,7 @@
 			);
 			name = ChipmunkSwiftWrapper_Tests;
 			productName = Tests;
-			productReference = 607FACE51AFB9204008FA782 /* Tests.xctest */;
+			productReference = 607FACE51AFB9204008FA782 /* ChipmunkSwiftWrapper_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -209,6 +464,7 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
@@ -245,6 +501,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE31D34E1BFBB61A00655FB1 /* GameScene.sks in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
@@ -358,8 +615,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE31D34B1BFB7B6E00655FB1 /* Platform.swift in Sources */,
+				EE31D2E61BFAE36A00655FB1 /* GameScene.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				EE31D34C1BFB7F5B00655FB1 /* Asteroid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

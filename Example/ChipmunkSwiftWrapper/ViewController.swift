@@ -7,11 +7,21 @@
 //
 
 import UIKit
+import SpriteKit
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let view = self.view as? SKView {
+            let scene = GameScene(fileNamed: "GameScene")
+            scene?.scaleMode = .AspectFit
+            
+            view.showsFPS = true
+            
+            view.presentScene(scene)
+            
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
 

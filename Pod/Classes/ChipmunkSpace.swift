@@ -19,6 +19,7 @@ public struct ChipmunkCollisionBlocks {
     var preSolve: BoolCollisionHandler?
     var postSolve: CollisionHandler?
     var separate: CollisionHandler?
+    var space: ChipmunkSpace
 }
 
 
@@ -32,11 +33,9 @@ func postStepBlock(space: UnsafeMutablePointer<cpSpace>, key: UnsafeMutablePoint
 
 func handleBegin(arb: UnsafeMutablePointer<cpArbiter>, space: UnsafeMutablePointer<cpSpace>, data: UnsafeMutablePointer<Void>) -> cpBool {
     let blocks = UnsafeMutablePointer<ChipmunkCollisionBlocks>(data).memory
-    print(cpSpaceGetUserData(space),UnsafeMutablePointer<ChipmunkSpace>(cpSpaceGetUserData(space)))
     if let block = blocks.beginBlock {
         let arbiter = ChipmunkArbiter(arbiter: arb)
-        let space = UnsafeMutablePointer<ChipmunkSpace>(cpSpaceGetUserData(space)).memory
-        return block(arbiter: arbiter, space: space) ? 1 : 0
+        return block(arbiter: arbiter, space: blocks.space) ? 1 : 0
     }
     return 1;
 }
@@ -44,8 +43,7 @@ func handlePreSolve(arb: UnsafeMutablePointer<cpArbiter>, space: UnsafeMutablePo
     let blocks = UnsafeMutablePointer<ChipmunkCollisionBlocks>(data).memory
     if let block = blocks.preSolve {
         let arbiter = ChipmunkArbiter(arbiter: arb)
-        let space = UnsafeMutablePointer<ChipmunkSpace>(cpSpaceGetUserData(space)).memory
-        return block(arbiter: arbiter, space: space) ? 1 : 0
+        return block(arbiter: arbiter, space: blocks.space) ? 1 : 0
     }
     return 1;
 }
@@ -53,16 +51,14 @@ func handlePostSolve(arb: UnsafeMutablePointer<cpArbiter>, space: UnsafeMutableP
     let blocks = UnsafeMutablePointer<ChipmunkCollisionBlocks>(data).memory
     if let block = blocks.postSolve {
         let arbiter = ChipmunkArbiter(arbiter: arb)
-        let space = UnsafeMutablePointer<ChipmunkSpace>(cpSpaceGetUserData(space)).memory
-        block(arbiter: arbiter, space: space)
+        block(arbiter: arbiter, space: blocks.space)
     }
 }
 func handleSeparate(arb: UnsafeMutablePointer<cpArbiter>, space: UnsafeMutablePointer<cpSpace>, data: UnsafeMutablePointer<Void>) -> Void {
     let blocks = UnsafeMutablePointer<ChipmunkCollisionBlocks>(data).memory
     if let block = blocks.separate {
         let arbiter = ChipmunkArbiter(arbiter: arb)
-        let space = UnsafeMutablePointer<ChipmunkSpace>(cpSpaceGetUserData(space)).memory
-        block(arbiter: arbiter, space: space)
+        block(arbiter: arbiter, space: blocks.space)
     }
 }
 
@@ -140,6 +136,10 @@ public class ChipmunkSpace: NSObject {
         set(value) {
             cpSpaceSetCollisionSlop(space, cpFloat(value))
         }
+    }
+
+    deinit {
+        cpSpaceDestroy(self.space)
     }
     /**
     * Chipmunk allows fast moving objects to overlap, then fixes the overlap over time. Overlapping objects are unavoidable even if swept collisions are supported, and this is an efficient and stable way to deal with overlapping objects.
@@ -246,7 +246,7 @@ public class ChipmunkSpace: NSObject {
         self.postStepBlocks.append(block)
     }
     public func addCollisionHandler(typeA typeA: AnyObject, typeB: AnyObject, begin: BoolCollisionHandler? = nil, preSolve: BoolCollisionHandler? = nil, postSolve: CollisionHandler? = nil, separate: CollisionHandler? = nil) {
-        let collisionBlocks = ChipmunkCollisionBlocks(beginBlock: begin, preSolve: preSolve, postSolve: postSolve, separate: separate)
+        let collisionBlocks = ChipmunkCollisionBlocks(beginBlock: begin, preSolve: preSolve, postSolve: postSolve, separate: separate,space: self)
         self.collisionHandlerBlocks.append(collisionBlocks)
         let pointer = withUnsafeMutablePointer(&self.collisionHandlerBlocks[self.collisionHandlerBlocks.count - 1], { $0 }) // must take reference from self.collisionHandlerBlocks
         cpSpaceAddCollisionHandler(self.space, unsafeAddressOf(typeA).getUIntValue(), unsafeAddressOf(typeB).getUIntValue(), handleBegin, handlePreSolve, handlePostSolve, handleSeparate, pointer)

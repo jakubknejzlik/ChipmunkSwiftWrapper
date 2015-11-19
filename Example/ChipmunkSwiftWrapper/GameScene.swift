@@ -35,13 +35,14 @@ class GameScene: SKScene {
         space.addCollisionHandler(typeA: Asteroid.self, typeB: Platform.self, begin: { (arbiter, space) -> Bool in
             print("begin")
             return true
-            }, preSolve: { (arbiter, space) -> Bool in
-                print("presolve")
-                return true
-            }, postSolve: { (arbiter, space) in
-                print("postSolve")
-            }, separate: { (arbiter, space) in
-                print("separate")
+        }, preSolve: { (arbiter, space) -> Bool in
+            print("presolve")
+            return true
+        }, postSolve: { (arbiter, space) in
+            print("postSolve")
+        }, separate: { (arbiter, space) in
+            print("separate")
         })
     }
+    
 }

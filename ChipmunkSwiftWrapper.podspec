@@ -20,7 +20,6 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
   s.tvos.deployment_target = '9.0'
-  s.osx.deployment_target = '10.10'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
@@ -28,6 +27,8 @@ Pod::Spec.new do |s|
     'ChipmunkSwiftWrapper' => ['Pod/Assets/*.png']
   }
 
+  s.platform :ios, '8.0'
+  s.platform :tvos, '9.0'
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit'
   # s.dependency 'AFNetworking', '~> 2.3'

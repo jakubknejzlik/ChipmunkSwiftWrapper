@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "ChipmunkSwiftWrapper"
-  s.version          = "0.1.1"
+  s.version          = "0.1.2"
   s.summary          = "Convenience wrapper for chipmunk physics written in Swift 2"
 
 # This description is used to generate tags and improve search results.
@@ -27,8 +27,8 @@ Pod::Spec.new do |s|
     'ChipmunkSwiftWrapper' => ['Pod/Assets/*.png']
   }
 
-  s.platform :ios, '8.0'
-  s.platform :tvos, '9.0'
+  # s.platform :ios, '8.0'
+  # s.platform :tvos, '9.0'
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit'
   # s.dependency 'AFNetworking', '~> 2.3'

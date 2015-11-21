@@ -16,9 +16,10 @@
 		6EFC96904206F2B7D59FFCAC /* Pods_ChipmunkSwiftWrapper_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299853465BA813587AEDF951 /* Pods_ChipmunkSwiftWrapper_Example.framework */; };
 		BE7A2D19E57A869D82756119 /* Pods_ChipmunkSwiftWrapper_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 371077C638659982D4A32C06 /* Pods_ChipmunkSwiftWrapper_Tests.framework */; };
 		EE31D2E61BFAE36A00655FB1 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE31D2E41BFAE36A00655FB1 /* GameScene.swift */; };
-		EE31D34B1BFB7B6E00655FB1 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE31D34A1BFB7B6E00655FB1 /* Platform.swift */; };
-		EE31D34C1BFB7F5B00655FB1 /* Asteroid.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE31D3481BFB6F7600655FB1 /* Asteroid.swift */; };
+		EE31D34B1BFB7B6E00655FB1 /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE31D34A1BFB7B6E00655FB1 /* Wall.swift */; };
+		EE31D34C1BFB7F5B00655FB1 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE31D3481BFB6F7600655FB1 /* Ball.swift */; };
 		EE31D34E1BFBB61A00655FB1 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = EE31D34D1BFBB61A00655FB1 /* GameScene.sks */; };
+		EE6CE3C21C00A8B700D5F86F /* EndSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6CE3C11C00A8B700D5F86F /* EndSprite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,9 +137,10 @@
 		EE31D33D1BFAE7B900655FB1 /* ChipmunkSwiftWrapper-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChipmunkSwiftWrapper-prefix.pch"; sourceTree = "<group>"; };
 		EE31D33E1BFAE7B900655FB1 /* ChipmunkSwiftWrapper-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChipmunkSwiftWrapper-umbrella.h"; sourceTree = "<group>"; };
 		EE31D33F1BFAE7B900655FB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EE31D3481BFB6F7600655FB1 /* Asteroid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asteroid.swift; sourceTree = "<group>"; };
-		EE31D34A1BFB7B6E00655FB1 /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
+		EE31D3481BFB6F7600655FB1 /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
+		EE31D34A1BFB7B6E00655FB1 /* Wall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
 		EE31D34D1BFBB61A00655FB1 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		EE6CE3C11C00A8B700D5F86F /* EndSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndSprite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,8 +205,9 @@
 				EE31D2E41BFAE36A00655FB1 /* GameScene.swift */,
 				EE31D34D1BFBB61A00655FB1 /* GameScene.sks */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
-				EE31D3481BFB6F7600655FB1 /* Asteroid.swift */,
-				EE31D34A1BFB7B6E00655FB1 /* Platform.swift */,
+				EE31D3481BFB6F7600655FB1 /* Ball.swift */,
+				EE31D34A1BFB7B6E00655FB1 /* Wall.swift */,
+				EE6CE3C11C00A8B700D5F86F /* EndSprite.swift */,
 			);
 			name = "Example for ChipmunkSwiftWrapper";
 			path = ChipmunkSwiftWrapper;
@@ -615,11 +618,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE31D34B1BFB7B6E00655FB1 /* Platform.swift in Sources */,
+				EE31D34B1BFB7B6E00655FB1 /* Wall.swift in Sources */,
 				EE31D2E61BFAE36A00655FB1 /* GameScene.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				EE31D34C1BFB7F5B00655FB1 /* Asteroid.swift in Sources */,
+				EE6CE3C21C00A8B700D5F86F /* EndSprite.swift in Sources */,
+				EE31D34C1BFB7F5B00655FB1 /* Ball.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

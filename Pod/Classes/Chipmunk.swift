@@ -20,20 +20,19 @@ extension Bool {
 
 extension UnsafePointer {
     func getUIntValue() -> UInt {
-        let string = "\(self)".stringByReplacingOccurrencesOfString("0xb", withString: "")
+        let string = "\(self)"//.stringByReplacingOccurrencesOfString("0xb", withString: "").stringByReplacingOccurrencesOfString("0x", withString: "")
         let scanner = NSScanner(string: string)
-        var result : UInt32 = 0
-        scanner.scanHexInt(&result)
+        var result : UInt64 = 0
+        scanner.scanHexLongLong(&result)
         return UInt(result)
     }
 }
 extension UInt {
     init?(_ pointer: UnsafePointer<Void>) {
-        let string = "\(pointer)".stringByReplacingOccurrencesOfString("0xb", withString: "")
-        print(string)
+        let string = "\(pointer)"//.stringByReplacingOccurrencesOfString("0xb", withString: "").stringByReplacingOccurrencesOfString("0x", withString: "")
         let scanner = NSScanner(string: string)
-        var result : UInt32 = 0
-        if scanner.scanHexInt(&result) {
+        var result : UInt64 = 0
+        if scanner.scanHexLongLong(&result) {
             print(result) // 37331519
         }
         self = UInt(result)

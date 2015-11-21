@@ -9,7 +9,7 @@
 import SpriteKit
 import ChipmunkSwiftWrapper
 
-class Asteroid: SKSpriteNode {
+class Ball: SKSpriteNode {
     static let collisionType: UInt = 1
     
     required init?(coder aDecoder: NSCoder) {
@@ -17,9 +17,10 @@ class Asteroid: SKSpriteNode {
         let radius = Double(self.size.width)/2.0
         let body = ChipmunkBody.circleBody(1000, radius: radius, offset:  CGPointZero)
         let box = ChipmunkShape(body: body, radius: radius, offset: CGPointZero)
-        box.elasticity = 0.8
-        box.friction = 0.5
-        box.collisionType = Asteroid.self
+        box.elasticity = 0.2
+        box.friction = 0
+        box.collisionType = Ball.self
+        box.group = Ball.self
         //
         ////            body.addShape(box)
         self.chipmunk_body = body

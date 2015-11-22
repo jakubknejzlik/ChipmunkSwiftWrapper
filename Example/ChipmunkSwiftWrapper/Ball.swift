@@ -17,7 +17,7 @@ class Ball: SKSpriteNode {
         let radius = Double(self.size.width)/2.0
         let body = ChipmunkBody.circleBody(1000, radius: radius, offset:  CGPointZero)
         let box = ChipmunkShape(body: body, radius: radius, offset: CGPointZero)
-        box.elasticity = 0.2
+        box.elasticity = 0.3
         box.friction = 0
         box.collisionType = Ball.self
         box.group = Ball.self

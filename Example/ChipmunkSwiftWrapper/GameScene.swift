@@ -37,7 +37,7 @@ class GameScene: SKScene {
         self.manager.accelerometerUpdateInterval = 0.05
         self.manager.startAccelerometerUpdatesToQueue(NSOperationQueue.mainQueue()) { (data, error) -> Void in
             if let data = data {
-                space.gravity = CGVectorMake(CGFloat(-data.acceleration.y)*5000, CGFloat(data.acceleration.x)*5000)
+                space.gravity = CGVectorMake(CGFloat(-data.acceleration.y)*10000, CGFloat(data.acceleration.x)*10000)
             } else {
                 space.gravity = CGVectorMake(0, 0)
             }

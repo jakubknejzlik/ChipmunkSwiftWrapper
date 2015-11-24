@@ -17,7 +17,7 @@ public protocol ChipmunkBodyNode {
 public class ChipmunkBody: ChipmunkSpaceObject {
     let body: UnsafeMutablePointer<cpBody>
     
-    var node: ChipmunkBodyNode?
+    public var node: ChipmunkBodyNode?
     
     var previousPosition: CGPoint?
     var previousAngle: Double?
@@ -144,6 +144,7 @@ public class ChipmunkBody: ChipmunkSpaceObject {
     public init(body: UnsafeMutablePointer<cpBody>) {
         self.body = body
         super.init()
+        cpBodySetUserData(self.body, UnsafeMutablePointer<ChipmunkBody>(unsafeAddressOf(self)))
     }
     
     public convenience init(mass: Double, moment: Double) {

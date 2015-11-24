@@ -106,8 +106,7 @@ public class ChipmunkShape: ChipmunkSpaceObject {
         self.body = body
         self.shape = shape
         super.init()
-        weak var weakSelf = self
-        cpShapeSetUserData(shape, &weakSelf)
+        cpShapeSetUserData(shape, UnsafeMutablePointer<ChipmunkShape>(unsafeAddressOf(self)))
         body.addShape(self)
     }
     

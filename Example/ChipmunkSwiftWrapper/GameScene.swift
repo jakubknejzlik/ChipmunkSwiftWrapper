@@ -48,6 +48,11 @@ class GameScene: SKScene {
 //        space.step(1)
         
         space.addCollisionHandler(typeA: Ball.self, typeB: EndSprite.self, begin: { (arbiter, space) -> Bool in
+            for body in arbiter.bodies() {
+                if let node = body.node as? SKNode {
+                    node.alpha = 0.5
+                }
+            }
             if let controller = view.window?.rootViewController {
                 let alert = UIAlertController(title: "Good job!", message: "You've made it to the end.", preferredStyle: .Alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: { (action) -> Void in
@@ -64,6 +69,11 @@ class GameScene: SKScene {
         }, postSolve: { (arbiter, space) in
             print("postSolve")
         }, separate: { (arbiter, space) in
+            for body in arbiter.bodies() {
+                if let node = body.node as? SKNode {
+                    node.alpha = 1
+                }
+            }
             print("separate")
         })
     }

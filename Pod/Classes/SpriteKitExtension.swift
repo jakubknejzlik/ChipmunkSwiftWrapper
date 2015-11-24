@@ -18,6 +18,7 @@ public extension SKNode {
         }
         set(value) {
             objc_setAssociatedObject(self, &SKNodeAssociatedBodyKey, value, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            
             if let body = value {
                 body.node = self
             }

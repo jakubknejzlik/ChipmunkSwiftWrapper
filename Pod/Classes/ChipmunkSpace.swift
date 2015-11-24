@@ -215,7 +215,7 @@ public class ChipmunkSpace: NSObject {
             if let node = body.node {
                 body.previousPosition = body.position
                 body.previousAngle = body.angle
-                node.chipmunk_update(step, delta: 1)
+                node.chipmunk_update(step, delta: step)
             }
         }
         cpSpaceStep(self.space, cpFloat(step))
@@ -250,7 +250,7 @@ public class ChipmunkSpace: NSObject {
         let collisionBlocks = ChipmunkCollisionBlocks(beginBlock: begin, preSolve: preSolve, postSolve: postSolve, separate: separate,space: self)
         self.collisionHandlerBlocks.append(collisionBlocks)
         let pointer = withUnsafeMutablePointer(&self.collisionHandlerBlocks[self.collisionHandlerBlocks.count - 1], { $0 }) // must take reference from self.collisionHandlerBlocks
-        print("add collision handler",unsafeAddressOf(typeA),unsafeAddressOf(typeB),unsafeAddressOf(typeA).getUIntValue(),unsafeAddressOf(typeB).getUIntValue())
+//        print("add collision handler",unsafeAddressOf(typeA),unsafeAddressOf(typeB),unsafeAddressOf(typeA).getUIntValue(),unsafeAddressOf(typeB).getUIntValue())
         cpSpaceAddCollisionHandler(self.space, unsafeAddressOf(typeA).getUIntValue(), unsafeAddressOf(typeB).getUIntValue(), handleBegin, handlePreSolve, handlePostSolve, handleSeparate, pointer)
     }
     

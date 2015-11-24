@@ -25,5 +25,6 @@ class Ball: SKSpriteNode {
         ////            body.addShape(box)
         self.chipmunk_body = body
         //        space.addObject(body)
+        
     }
 }

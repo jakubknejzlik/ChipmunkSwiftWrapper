@@ -62,20 +62,20 @@ public class ChipmunkArbiter {
     
     public func shapes() -> [ChipmunkShape] {
         var array: [ChipmunkShape] = []
-        let shapeA: UnsafeMutablePointer<UnsafeMutablePointer<cpShape>> = UnsafeMutablePointer<UnsafeMutablePointer<cpShape>>()
-        let shapeB: UnsafeMutablePointer<UnsafeMutablePointer<cpShape>> = UnsafeMutablePointer<UnsafeMutablePointer<cpShape>>()
-        cpArbiterGetShapes(self.arbiter, shapeA, shapeB)
-        array.append(UnsafeMutablePointer<ChipmunkShape>(cpShapeGetUserData(shapeA.memory)).memory)
-        array.append(UnsafeMutablePointer<ChipmunkShape>(cpShapeGetUserData(shapeB.memory)).memory)
+        var shapeA: UnsafeMutablePointer<cpShape> = nil
+        var shapeB: UnsafeMutablePointer<cpShape> = nil
+        cpArbiterGetShapes(self.arbiter, &shapeA, &shapeB)
+        array.append(unsafeBitCast(cpShapeGetUserData(shapeA),ChipmunkShape.self))
+        array.append(unsafeBitCast(cpShapeGetUserData(shapeB),ChipmunkShape.self))
         return array
     }
-    public func bodies() -> [ChipmunkShape] {
-        var array: [ChipmunkShape] = []
-        let bodyA: UnsafeMutablePointer<UnsafeMutablePointer<cpBody>> = UnsafeMutablePointer<UnsafeMutablePointer<cpBody>>()
-        let bodyB: UnsafeMutablePointer<UnsafeMutablePointer<cpBody>> = UnsafeMutablePointer<UnsafeMutablePointer<cpBody>>()
-        cpArbiterGetBodies(self.arbiter, bodyA, bodyB)
-        array.append(UnsafeMutablePointer<ChipmunkShape>(cpBodyGetUserData(bodyA.memory)).memory)
-        array.append(UnsafeMutablePointer<ChipmunkShape>(cpBodyGetUserData(bodyB.memory)).memory)
+    public func bodies() -> [ChipmunkBody] {
+        var array: [ChipmunkBody] = []
+        var bodyA: UnsafeMutablePointer<cpBody> = nil
+        var bodyB: UnsafeMutablePointer<cpBody> = nil
+        cpArbiterGetBodies(self.arbiter, &bodyA, &bodyB)
+        array.append(unsafeBitCast(cpBodyGetUserData(bodyA),ChipmunkBody.self))
+        array.append(unsafeBitCast(cpBodyGetUserData(bodyB),ChipmunkBody.self))
         return array
     }
     

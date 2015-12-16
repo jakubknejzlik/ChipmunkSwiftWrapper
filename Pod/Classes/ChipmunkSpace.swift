@@ -69,6 +69,8 @@ public class ChipmunkSpace: NSObject {
     var delegate: ChipmunkSpaceDelegate?
     var data: AnyObject?
     
+    public let staticBody: ChipmunkBody
+    
     var lastTimeStamp: CFTimeInterval?
     var currentRepeatInterval: NSTimeInterval?
     var timer: NSTimer?
@@ -137,15 +139,15 @@ public class ChipmunkSpace: NSObject {
             cpSpaceSetCollisionSlop(space, cpFloat(value))
         }
     }
-
+    
     deinit {
         cpSpaceDestroy(self.space)
     }
     /**
-    * Chipmunk allows fast moving objects to overlap, then fixes the overlap over time. Overlapping objects are unavoidable even if swept collisions are supported, and this is an efficient and stable way to deal with overlapping objects.
-    * The bias value controls what percentage of overlap remains unfixed after a second and defaults to ~0.2%. Valid values are in the range from 0 to 1, but using 0 is not recommended for stability reasons.
-    * The default value is calculated as cpfpow(1.0f - 0.1f, 60.0f) meaning that Chipmunk attempts to correct 10% of error ever 1/60th of a second. Note: Very very few games will need to change this value.
-    */
+     * Chipmunk allows fast moving objects to overlap, then fixes the overlap over time. Overlapping objects are unavoidable even if swept collisions are supported, and this is an efficient and stable way to deal with overlapping objects.
+     * The bias value controls what percentage of overlap remains unfixed after a second and defaults to ~0.2%. Valid values are in the range from 0 to 1, but using 0 is not recommended for stability reasons.
+     * The default value is calculated as cpfpow(1.0f - 0.1f, 60.0f) meaning that Chipmunk attempts to correct 10% of error ever 1/60th of a second. Note: Very very few games will need to change this value.
+     */
     public var collisionBias: Double {
         get {
             return Double(cpSpaceGetCollisionBias(space))
@@ -175,8 +177,9 @@ public class ChipmunkSpace: NSObject {
     
     public override init() {
         space = cpSpaceNew()
+        staticBody = ChipmunkBody(body: space.memory.staticBody)
         super.init()
-
+        
         let pointer = UnsafeMutablePointer<Void>(unsafeAddressOf(self))
         cpSpaceSetUserData(space, pointer)
         self.gravity = CGVectorMake(0, -100)
@@ -250,7 +253,7 @@ public class ChipmunkSpace: NSObject {
         let collisionBlocks = ChipmunkCollisionBlocks(beginBlock: begin, preSolve: preSolve, postSolve: postSolve, separate: separate,space: self)
         self.collisionHandlerBlocks.append(collisionBlocks)
         let pointer = withUnsafeMutablePointer(&self.collisionHandlerBlocks[self.collisionHandlerBlocks.count - 1], { $0 }) // must take reference from self.collisionHandlerBlocks
-//        print("add collision handler",unsafeAddressOf(typeA),unsafeAddressOf(typeB),unsafeAddressOf(typeA).getUIntValue(),unsafeAddressOf(typeB).getUIntValue())
+        //        print("add collision handler",unsafeAddressOf(typeA),unsafeAddressOf(typeB),unsafeAddressOf(typeA).getUIntValue(),unsafeAddressOf(typeB).getUIntValue())
         cpSpaceAddCollisionHandler(self.space, unsafeAddressOf(typeA).getUIntValue(), unsafeAddressOf(typeB).getUIntValue(), handleBegin, handlePreSolve, handlePostSolve, handleSeparate, pointer)
     }
     

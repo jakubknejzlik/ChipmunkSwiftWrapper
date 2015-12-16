@@ -24,6 +24,10 @@ public extension SKNode {
             }
         }
     }
+    
+    public func chipmunk_initialize(space: ChipmunkSpace) {
+        
+    }
 }
 
 extension SKNode: ChipmunkBodyNode {
@@ -61,6 +65,7 @@ extension SKNode: ChipmunkBodyNode {
 
 func addBodiesToSpace(node: SKNode,space: ChipmunkSpace) {
     for children in node.children {
+        children.chipmunk_initialize(space)
         if let body = children.chipmunk_body {
             space.addObject(body)
         }
@@ -77,6 +82,7 @@ public extension SKScene {
             objc_setAssociatedObject(self, &SKSceneAssociatedSpaceKey, value, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             if let value = value {
                 value.data = self
+                self.chipmunk_initialize(value)
                 addBodiesToSpace(self, space: value)
             }
         }

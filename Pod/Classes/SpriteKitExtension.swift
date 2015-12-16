@@ -29,30 +29,24 @@ public extension SKNode {
 extension SKNode: ChipmunkBodyNode {
     
     public func chipmunk_update(interval: NSTimeInterval, delta: NSTimeInterval) {
-        if let body = self.chipmunk_body {
+        if let body = self.chipmunk_body, scene = self.scene, parentNode = self.parent {
             if !body.isStatic {
-                self.position = cpvlerp(body.previousPosition ?? body.position, body.position, cpFloat(delta))
+                let position = cpvlerp(body.previousPosition ?? body.position, body.position, cpFloat(delta))
+                self.position = scene.convertPoint(position, toNode: parentNode)
                 self.zRotation = CGFloat(cpflerp(cpFloat(body.previousAngle ?? body.angle), cpFloat(body.angle), cpFloat(delta)))
             } else {
-                self.position = body.position
+                self.position = scene.convertPoint(body.position, toNode: parentNode)
                 self.zRotation = CGFloat(body.angle)
             }
-//            print(self.name,body.position,self.position,body.isSleeping,delta,body.shapes)
         }
     }
     
     public func chipmunk_updateBodyPosition(body: ChipmunkBody) {
-        if let node = body.space?.data as? SKNode, parentNode = self.parent {
-            body.position = node.convertPoint(self.position, fromNode: parentNode)
+        if let scene = self.scene, parentNode = self.parent {
+            body.position = scene.convertPoint(self.position, fromNode: parentNode)
         }
         body.angle = Double(self.zRotation)
     }
-//    func chipmunk_step(interval: NSTimeInterval) {
-//        
-//    }
-//    func chipmunk_step(interval: NSTimeInterval, delta: NSTimeInterval) {
-//        
-//    }
     func chipmunk_addChild(child: SKNode) {
         self.addChild(child)
         if let body = self.chipmunk_body, space = self.scene?.chipmunk_space {
@@ -60,6 +54,7 @@ extension SKNode: ChipmunkBodyNode {
         }
     }
 }
+
 
 
 

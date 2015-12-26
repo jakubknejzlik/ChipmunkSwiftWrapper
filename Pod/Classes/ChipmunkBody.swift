@@ -132,7 +132,7 @@ public class ChipmunkBody: ChipmunkSpaceObject {
     }
     
     
-    lazy var shapes: Set<ChipmunkShape> = []
+    public lazy var shapes: Set<ChipmunkShape> = []
     func addShape(shape: ChipmunkShape) {
         shape.body = self
         if let space = self.space {
